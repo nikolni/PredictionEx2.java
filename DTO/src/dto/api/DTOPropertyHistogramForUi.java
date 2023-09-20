@@ -1,8 +1,23 @@
 package dto.api;
 
+
 import java.util.Map;
 
-public interface DTOPropertyHistogramForUi {
-    Map< Object, Long> getPropertyHistogram();
-    String getPropertyName();
+public class DTOPropertyHistogramForUi{
+
+    private final Map< Object, Long> propertyHistogram;
+    private final String propertyName;
+
+    public DTOPropertyHistogramForUi(Map< Object, Long> propertyHistogram, String propertyName){
+        this.propertyHistogram = propertyHistogram;
+        this.propertyName = propertyName;
+    }
+
+    public Map< Object, Long> getPropertyHistogram() {
+        return propertyHistogram;
+    }
+
+    public String getPropertyName() {
+        return propertyName;
+    }
 }

@@ -5,9 +5,9 @@ import dto.api.*;
 import dto.creation.*;
 import dto.definition.property.definition.api.PropertyDefinitionDTO;
 import dto.definition.termination.condition.api.TerminationConditionsDTO;
-import dto.impl.DTORerunValuesForUiImpl;
-import dto.impl.DTOSimulationEndingForUiImpl;
-import dto.impl.DTOWorldGridForUiImpl;
+import dto.api.DTORerunValuesForUi;
+import dto.api.DTOSimulationEndingForUi;
+import dto.api.DTOWorldGridForUi;
 import jaxb2.copy.WorldFromXml;
 import system.engine.api.SystemEngineAccess;
 import system.engine.run.simulation.api.RunSimulation;
@@ -207,7 +207,7 @@ public class SystemEngineAccessImpl implements SystemEngineAccess {
             terminationConditionArr = runSimulationInstance.runSimulationOnLastWorldInstance(worldDefinition,
                     simulationIdToWorldInstance.get(simulationID));
 
-            DTOSimulationEndingForUi dtoSimulationEndingForUi = new DTOSimulationEndingForUiImpl(simulationID, terminationConditionArr);
+            DTOSimulationEndingForUi dtoSimulationEndingForUi = new DTOSimulationEndingForUi(simulationID, terminationConditionArr);
             runSimulationManager.increaseCompletedTaskCount();
             runSimulationManager.decreaseActiveCount();
             return dtoSimulationEndingForUi;
@@ -269,7 +269,7 @@ public class SystemEngineAccessImpl implements SystemEngineAccess {
 
     @Override
     public DTOWorldGridForUi getDTOWorldGridForUi(){
-        DTOWorldGridForUi dtoWorldGridForUi = new DTOWorldGridForUiImpl(worldDefinition.getGridRows(), worldDefinition.getGridColumns());
+        DTOWorldGridForUi dtoWorldGridForUi = new DTOWorldGridForUi(worldDefinition.getGridRows(), worldDefinition.getGridColumns());
         return dtoWorldGridForUi;
     }
     @Override
@@ -308,7 +308,7 @@ public class SystemEngineAccessImpl implements SystemEngineAccess {
         getEntityDefinitionManager().getDefinitions()){
             entitiesPopulations.put(entityDefinition.getUniqueName(), entityDefinition.getPopulation());
         }
-        return new DTORerunValuesForUiImpl(environmentVarsValues, entitiesPopulations);
+        return new DTORerunValuesForUi(environmentVarsValues, entitiesPopulations);
     }
     @Override
     public List<String> getAllSimulationsStatus(){

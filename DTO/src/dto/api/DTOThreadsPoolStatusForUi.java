@@ -1,8 +1,28 @@
 package dto.api;
 
-public interface DTOThreadsPoolStatusForUi {
-     Integer getQueueSize();
+public class DTOThreadsPoolStatusForUi{
+    Integer queueSize;
+    Integer activeThreadCount;
+    Integer completedTaskCount;
 
-    Integer getActiveThreadCount();
-    Integer getCompletedTaskCount(); // Amount of tasks performed
+    public DTOThreadsPoolStatusForUi(int queueSize, int activeThreadCount, int completedTaskCount) {
+        this.queueSize = queueSize;
+        this.activeThreadCount = activeThreadCount;
+        this.completedTaskCount = completedTaskCount;
+    }
+
+
+    public Integer getQueueSize() {
+        return queueSize;
+    }
+
+
+    public Integer getActiveThreadCount() {
+        return activeThreadCount;
+    }
+
+
+    public Integer getCompletedTaskCount() {
+        return completedTaskCount;
+    }
 }

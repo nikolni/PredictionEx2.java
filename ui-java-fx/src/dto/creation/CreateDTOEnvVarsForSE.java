@@ -3,7 +3,6 @@ package dto.creation;
 import app.body.screen2.tile.environment.variable.EnvironmentVariableController;
 import dto.api.DTOEnvVarDefValuesForSE;
 import dto.definition.property.definition.api.PropertyDefinitionDTO;
-import dto.impl.DTOEnvVarDefValuesForSEImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,6 @@ public class CreateDTOEnvVarsForSE {
             Object value= envVarNameToTileController.get(propertyDefinitionDTO.getUniqueName()).getValueTextField();
             environmentVarInitValues.add(value) ;
         }
-        return new DTOEnvVarDefValuesForSEImpl(environmentVarInitValues, propertyDefinitionDTOList);
+        return new DTOEnvVarDefValuesForSE(environmentVarInitValues, propertyDefinitionDTOList);
     }
 }

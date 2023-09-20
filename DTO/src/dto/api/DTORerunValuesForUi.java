@@ -1,9 +1,24 @@
 package dto.api;
 
+
 import java.util.Map;
 
-public interface DTORerunValuesForUi {
-     Map<String, Object> getEnvironmentVarsValues() ;
+public class DTORerunValuesForUi{
+    private Map<String, Object> environmentVarsValues;
+    private Map<String, Integer> entitiesPopulations;
 
-     Map<String, Integer> getEntitiesPopulations();
+
+    public DTORerunValuesForUi(Map<String, Object> environmentVarsValues, Map<String, Integer> entitiesPopulations) {
+        this.environmentVarsValues = environmentVarsValues;
+        this.entitiesPopulations = entitiesPopulations;
+    }
+
+    public Map<String, Object> getEnvironmentVarsValues() {
+        return environmentVarsValues;
+    }
+
+    public Map<String, Integer> getEntitiesPopulations() {
+        return entitiesPopulations;
+    }
+
 }
